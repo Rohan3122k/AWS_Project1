@@ -13,13 +13,14 @@ This project demonstrates how to efficiently store, catalog, and query wildfire 
 - Bucket versioning enabled for data recovery.
 - Block public access to prevent unauthorized access.
 
-2. Creating an AWS Glue Data Catalog Table
+2. Creating an AWS Glue Data Catalog Table:
 - Created an AWS Glue Crawler (wildfire_crawler) to automatically infer the dataset schema.
-- Defined a Glue Database (wildfire_db) to store metadata.
-- Executed the crawler, which:
-- Scanned the CSV file in S3.
-- Generated a structured schema in the AWS Glue Catalog.
-- Created a table: california_wildfire_damage.
+- Defined a Glue Database (wildfire_db) to store metadata for the dataset.
+- Executed the Crawler, which:
+  - Scanned the CSV file in S3 (s3://wildfire-dataset-bucket/California_Wildfire_Damage.csv).
+  - Generated a structured schema in the AWS Glue Catalog.
+  - Created a table: california_wildfire_damage_csv in the wildfire_db database.
+- This process allows for seamless management of metadata for your dataset in the Glue Data Catalog and can be easily updated through scheduled crawls.
 
 3. Querying the Data Using Amazon Athena
 - Connected Athena to the wildfire_db Glue database.
